@@ -8,9 +8,9 @@
     <hr>
     </div>
 
-    <div class="alert alert-danger"> No se encontro nada en esta busqueda.</div>
+    <div *ngIf="this.hayError" class="alert alert-danger"> No se encontro nada con {{this.value}} .</div>
 
-<div class="row">
+<div *ngIf="this.paises.length > 0"  class="row">
     <div class="col">
         <table class="table table-hover">
             <thead>
@@ -23,14 +23,12 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>bandera</td>
-                    <td>nombre</td>
-                    <td>123</td>
-                    <td><a href="/pais/es">Ver ...</a></td>
-                    <td></td>
-                    <td></td>
+                <tr *ngFor="let pais of paises; let i = index;">
+                    <td>{{i +1}}</td>
+                    <td><img class="small-flag" [src]="pais.flag" alt=""></td>
+                    <td>{{pais.name}}</td>
+                    <td>{{pais.population | number}}</td>
+                    <td><a [routerLink]="['/pais',pais.alpha2Code]">Ver ...</a></td>
                 </tr>
             </tbody>
         </table>

@@ -1,10 +1,12 @@
-<h2>Por Capital</h2>
-<hr>
-<div class="row">
-  <div class="col">
-   <app-pais-input (onEnter)="buscar($event)" (onDebounce)="sugerencias($event)"  placeholder="Buscar capital.."></app-pais-input>
-    <hr>
+<div class="animate__animated animate__fadeIn animate__faster">
+  <h2>Por Capital</h2>
+  <hr>
+  <div class="row">
+    <div class="col">
+     <app-pais-input (onEnter)="buscar($event)" (onDebounce)="sugerencias($event)"  placeholder="Buscar capital.."></app-pais-input>
+      <hr>
+    </div>
+    <div *ngIf="this.hayError" class="alert alert-danger"> No se encontro nada con {{this.value}} .</div>
+    <app-pais-tabla [paises]="paises"></app-pais-tabla>    
   </div>
-  <div *ngIf="this.hayError" class="alert alert-danger"> No se encontro nada con {{this.value}} .</div>
-  <app-pais-tabla [paises]="paises"></app-pais-tabla>    
 </div>

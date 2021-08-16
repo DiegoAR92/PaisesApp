@@ -11,6 +11,8 @@ export class VerPaisComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    
+
   }
 
 }

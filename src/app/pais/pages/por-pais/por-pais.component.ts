@@ -8,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PorPaisComponent implements OnInit {
 
+  value: string ='España';
+
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  buscar(){
+   console.log(this.value);
+   
   }
 
 }
